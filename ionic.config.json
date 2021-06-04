@@ -1,0 +1,7 @@
+{
+  "name": "guardiaodepapel",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

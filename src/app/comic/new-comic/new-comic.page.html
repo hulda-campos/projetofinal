@@ -1,0 +1,76 @@
+<ion-header>
+    <ion-toolbar color="dark">
+        <ion-buttons slot="start">
+            <ion-menu-button color="tertiary"></ion-menu-button>
+        </ion-buttons>
+        <ion-title>Adicionar Quadrinho</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="comicForm">
+    <ion-grid>
+        <ion-card>
+            <ion-row class="ion-margin-item ion-margin-top">
+                <ion-col size-sm="6" offset-sm="3">
+                    <ion-item>
+                        <ion-label position="floating">Título</ion-label>
+                        <ion-input type="text" name="titulo"></ion-input>
+
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label position="floating">Autor</ion-label>
+                        <ion-input type="text" name="autor"></ion-input>
+
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Editora</ion-label>
+                        <ion-input type="text" name="editora"></ion-input>
+
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">Data de Lançamento</ion-label>
+                        <ion-datetime display-format="D/M/YYYY" picker-format="D M YYYY"></ion-datetime>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label position="floating">N° da Edição</ion-label>
+                        <ion-input type="number" name="edicao"></ion-input>
+
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>Formato de Mídia</ion-label>
+                        <ion-select formControlName="formato">
+                            <ion-select-option value="ongoing">Ongoing Series</ion-select-option>
+                            <ion-select-option value="limited">Limited Series</ion-select-option>
+                            <ion-select-option value="tpb">Trade Paperback</ion-select-option>
+                            <ion-select-option value="oneshot">One-shot</ion-select-option>
+                            <ion-select-option value="novel">Graphic Novel</ion-select-option>
+                        </ion-select>
+                    </ion-item>
+                    <ion-item *ngIf="comicForm.get('formato').value('ongoing')">
+                      <ion-label>Status</ion-label>
+                      <ion-select>
+                          <ion-select-option value="andamento">Em andamento</ion-select-option>
+                          <ion-select-option value="hiatus">Em hiatus</ion-select-option>
+                          <ion-select-option value="encerrado">Encerrado</ion-select-option>
+                      </ion-select>
+                  </ion-item>
+                    <ion-item>
+                      <ion-label>Formato de Mídia</ion-label>
+                      <ion-select>
+                          <ion-select-option value="semanal">Semanal</ion-select-option>
+                          <ion-select-option value="mensal">Mensal</ion-select-option>
+                      </ion-select>
+                  </ion-item>
+                    <ion-item>
+                        <ion-label>Capa</ion-label>
+                        <ion-input type="file" name="imageURL" slot="start"></ion-input>
+
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+    </ion-grid>
+  </form>
+</ion-content>
